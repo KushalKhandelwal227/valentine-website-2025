@@ -10,14 +10,14 @@
     --text-color: #ff4757;
 
     /* Animations */
-    --float-duration: 18s;
-    --float-distance: 40px;
-    --bounce-speed: 0.6s;
-    --heart-explosion-size: 1.4;
+    --float-duration: 15s;
+    --float-distance: 50px;
+    --bounce-speed: 0.5s;
+    --heart-explosion-size: 1.5;
 }
 
 /* ===============================
-   🌸 BASE STYLES
+   🌸 BASE
 ================================ */
 
 body {
@@ -35,6 +35,11 @@ body {
     overflow-x: hidden;
 }
 
+h1,
+h2 {
+    font-weight: 700;
+}
+
 h1 {
     font-family: "Dancing Script", cursive;
     font-size: 3rem;
@@ -43,9 +48,7 @@ h1 {
 }
 
 h2 {
-    font-size: 1.8rem;
     color: #ff8787;
-    font-weight: 600;
 }
 
 /* ===============================
@@ -53,7 +56,7 @@ h2 {
 ================================ */
 
 .container {
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.9);
     padding: 2.5rem;
     border-radius: 26px;
     text-align: center;
@@ -61,7 +64,7 @@ h2 {
     margin: 20px;
     position: relative;
 
-    backdrop-filter: blur(14px);
+    backdrop-filter: blur(12px);
     box-shadow: 0 35px 70px rgba(255, 105, 135, 0.28);
 }
 
@@ -79,7 +82,7 @@ h2 {
 .heart,
 .bear {
     position: absolute;
-    font-size: 1.8rem;
+    font-size: 2rem;
     animation: float var(--float-duration) linear infinite;
     opacity: 0.85;
 }
@@ -105,8 +108,7 @@ h2 {
     margin: 12px;
     border-radius: 999px;
     color: white;
-    font-size: 1.05rem;
-    font-weight: 500;
+    font-size: 1.1rem;
     cursor: pointer;
 
     transition: transform 0.25s ease,
@@ -134,7 +136,7 @@ h2 {
     position: fixed;
     bottom: 18px;
     right: 18px;
-    opacity: 0.18;
+    opacity: 0.2;
     transform: scale(0.75);
     z-index: 2;
     animation: subtle-hint 2.5s infinite alternate;
@@ -151,51 +153,101 @@ h2 {
 }
 
 /* ===============================
-   🌸 LOVE METER
+   🌸 LOVE METER — ORIGINAL STYLE KEPT
 ================================ */
 
 .love-meter {
+    position: relative;
     width: 100%;
-    margin: 30px auto;
+    margin: 20px auto;
+    overflow: visible;
+    padding: 10px 0;
 }
 
 .love-meter p {
-    font-size: 1.1em;
+    font-size: 1.2em;
+    margin: 15px 0;
     color: var(--text-color);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
-/* SLIDER */
 .slider {
     width: 100%;
-    height: 26px;
+    height: 25px;
     background: linear-gradient(
         to right,
         #ff6b6b,
         #ff8787,
         #ffb8b8
     );
-    border-radius: 20px;
+    appearance: none;
     outline: none;
-    cursor: pointer;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.2);
+    transition: all 0.3s ease;
+}
 
-    box-shadow: 0 6px 18px rgba(255, 107, 107, 0.25);
+.slider:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.3);
 }
 
 .slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 34px;
-    height: 34px;
+    appearance: none;
+    width: 35px;
+    height: 35px;
     background: linear-gradient(
         135deg,
         #ff4757,
         #ff6b6b
     );
     border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(255, 71, 87, 0.3);
+    margin-top: -5px;
     border: 3px solid white;
+}
+
+.slider::-moz-range-thumb {
+    width: 35px;
+    height: 35px;
+    background: linear-gradient(
+        135deg,
+        #ff4757,
+        #ff6b6b
+    );
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(255, 71, 87, 0.3);
+    border: 3px solid white;
+}
+
+#extraLove {
+    color: #ff6b6b;
+    font-weight: bold;
+    animation: bounce 0.5s infinite alternate;
+    display: block;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background: rgba(255, 107, 107, 0.1);
+    margin-top: 5px;
+}
+
+#extraLove.super-love {
+    background: rgba(255, 107, 107, 0.2);
+    font-size: 1.2em;
+}
+
+@keyframes bounce {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.2);
+    }
 }
 
 /* ===============================
@@ -218,30 +270,26 @@ h2 {
 }
 
 .celebration-text {
-    font-size: 2.3em;
+    font-size: 2.4em;
     line-height: 1.3;
     margin: 20px 0;
     color: #ff4757;
-    font-weight: 700;
+    font-weight: bold;
 
     animation: bounce var(--bounce-speed)
         infinite alternate;
-
-    text-shadow: 2px 2px 4px rgba(255, 71, 87, 0.25);
 }
 
-/* Photo spotlight */
+/* PHOTO SPOTLIGHT */
 #celebration img {
     max-width: 300px;
     border-radius: 24px;
     border: 6px solid white;
-    margin-top: 18px;
-
     box-shadow: 0 20px 45px rgba(255, 105, 135, 0.35);
 }
 
 /* ===============================
-   🌸 MUSIC BUTTON
+   🌸 MUSIC
 ================================ */
 
 .music-controls {
@@ -271,17 +319,8 @@ h2 {
 }
 
 /* ===============================
-   🌸 ANIMATIONS
+   🌸 MISC
 ================================ */
-
-@keyframes bounce {
-    from {
-        transform: scale(1);
-    }
-    to {
-        transform: scale(1.15);
-    }
-}
 
 @keyframes subtle-hint {
     from {
