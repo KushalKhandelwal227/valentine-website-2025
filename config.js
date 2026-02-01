@@ -39,8 +39,8 @@ const CONFIG = {
     },
 
     celebration: {
-        title: "YAYYYY 😭💍💖",
-        message: "Now come get your gift… a hug + kiss combo 😘",
+        title: "YAYYYY 😭💖",
+        message: "Now come get your gift… a big hug + lot of kisses 😘",
         emojis: "🎁💖🤗💝💋❤️💕"
     },
 
