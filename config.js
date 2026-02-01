@@ -48,9 +48,10 @@ const CONFIG = {
     memories: {
         enabled: true,
         images: [
-            "https://YOUR_IMAGE_LINK_1.jpg",
-            "https://YOUR_IMAGE_LINK_2.jpg",
-            "https://YOUR_IMAGE_LINK_3.jpg"
+            "https://raw.githubusercontent.com/KushalKhandelwal227/valentine-website-2025/main/Gemini_Generated_Image_2xysdf2xysdf2xys.png",
+            "https://raw.githubusercontent.com/KushalKhandelwal227/valentine-website-2025/main/Gemini_Generated_Image_fq32ykfq32ykfq32.png",
+            "https://raw.githubusercontent.com/KushalKhandelwal227/valentine-website-2025/main/WhatsApp%20Image%202026-02-01%20at%208.39.34%20PM%20(2).jpeg",
+            "https://raw.githubusercontent.com/KushalKhandelwal227/valentine-website-2025/main/WhatsApp%20Image%202026-02-01%20at%208.39.34%20PM%20(3).jpeg"
         ]
     },
 
